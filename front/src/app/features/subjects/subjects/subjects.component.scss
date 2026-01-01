@@ -1,0 +1,20 @@
+.subject {
+    &-container {
+        padding: 18px;
+    }
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 16px;
+        column-gap: 5px;
+    }
+    &-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    &-card {
+        margin-inline: 4px;
+    }
+}

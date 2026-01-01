@@ -1,0 +1,13 @@
+<mat-card class="custom-card" appearance="outlined" [ngClass]="cardVariant">
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+
+  <ng-content select="[extra]"></ng-content>
+
+  <mat-card-content>
+    {{ content }}
+  </mat-card-content>
+
+  <ng-content select="[actions]"></ng-content>
+</mat-card>

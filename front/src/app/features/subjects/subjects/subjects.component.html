@@ -1,0 +1,16 @@
+<div class="subject-container">
+  <div class="subject-list">
+    <app-card *ngFor="let subject of subjects" [title]="subject.title" [content]="subject.description" cardVariant="big" class="subject-card" >
+      <ng-container actions>
+        <div class="subject-actions">
+          <app-button 
+            [disabled]="isSubscribed(subject.id)" 
+            (click)="subscribe(subject.id)" 
+            [label]="isSubscribed(subject.id) ? 'Déjà abonné' : 'S\'abonner'">
+          </app-button>
+        </div>
+      </ng-container>
+    </app-card>
+  </div>
+</div>
+
