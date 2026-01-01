@@ -1,0 +1,57 @@
+.create-post-title {
+  margin: 0 auto;
+  &-container {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+
+    .back-link {
+      position: absolute;
+      height: 60px;
+      &-icon {
+        font-size: 40px;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+      }
+    }
+  
+  }
+
+}
+
+
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 281px;
+  margin: 0 auto;
+
+  .full-width {
+    width: 100%;
+    
+  }
+  &-content {
+    height: 200px;
+  }
+  button {
+    width: 139px;
+  }
+}
+
+
+
+@media (max-width: 350px) { 
+  .create-post {
+    &-title {
+      margin-top: 65px;
+      &-container {
+        align-items: flex-start;
+      }
+    }
+  }
+}

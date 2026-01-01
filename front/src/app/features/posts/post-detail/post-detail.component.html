@@ -1,0 +1,54 @@
+<ng-container *ngIf="post; else loading">
+    <div class="post-title-container">
+        <a routerLink="/posts" aria-label="Revenir à l'accueil" class="back-link">
+            <mat-icon class="back-link-icon">arrow_back</mat-icon>
+        </a>
+        <h1 class="post-title">{{post.title}}</h1>
+    </div> 
+    <div class="post-body-container"> 
+        <div class="post-info">
+            <p class="post-info-element">{{post.createdAt}}</p>
+            <p class="post-info-element">{{post.author}}</p>
+            <p class="post-info-element">{{post.subject}}</p>
+        </div>
+        <p class="post-content">{{post.content}}</p>
+        <hr />
+    
+        <h2>Commentaires</h2>
+        <div class="comment-list">
+            <div class="comment-list-element" *ngFor="let comment of post.comments">
+                <p class="comment-author">{{comment.author}}</p>
+                <p class="comment-content">{{comment.content}}</p>
+            </div>
+        </div>
+
+        <div class="comment-box">
+            <form class="comment-form" [formGroup]="commentForm" (ngSubmit)="addComment()">
+                <mat-form-field appearance="outline" class="comment-input">
+                    <mat-label>Écrire un commentaire...</mat-label>
+                    <textarea
+                    matInput
+                    formControlName="commentContent"
+                    placeholder="Ajoutez votre commentaire ici"
+                    rows="3"
+                    ></textarea>
+                </mat-form-field>
+                <div class="comment-button-container">
+                    <button
+                        color="primary"
+                        type="submit"
+                        [disabled]="commentForm.invalid"
+                    >
+                        <mat-icon class="comment-send-icon">send</mat-icon>
+                    </button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+
+</ng-container>
+<ng-template #loading>
+    <h1>{{error ? error : 'Chargement...'}}</h1>
+</ng-template>

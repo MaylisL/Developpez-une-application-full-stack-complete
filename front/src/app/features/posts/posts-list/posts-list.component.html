@@ -1,0 +1,32 @@
+<div class="posts-container">
+    <div class="posts-actions">
+        <app-button label="Créer un article  " type="button" routerLink="/posts/create"></app-button>
+        <div class="posts-sort">
+            <span> Trier par date </span>
+            <button (click)="toggleSortOrder()">
+                <mat-icon>
+                    {{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}
+                </mat-icon>
+            </button>
+            
+        </div>
+    </div>
+    
+    <div class="posts-list">
+        <a [routerLink]="['/posts', post.id]" *ngFor="let post of posts" class="posts-link">
+            <app-card
+                class="posts-card"
+                [title]="post.title"
+                [content]="post.content"
+                >
+                <div extra class="posts-card-subtitles">
+                    <span class="subtitle">{{ post.createdAt }}</span>
+                    <span class="subtitle">{{ post.author }}</span>
+                </div>
+            </app-card>
+        </a>
+        
+    </div>
+
+</div>
+
