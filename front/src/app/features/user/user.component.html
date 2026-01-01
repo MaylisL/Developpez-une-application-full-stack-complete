@@ -1,0 +1,38 @@
+<h1 class="profile-title">Profil utilisateur</h1>
+<div class="profile-form-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="profile-form">
+        <mat-form-field appearance="outline" class="full-width">
+            <input matInput placeholder="Nom d'utilisateur" formControlName="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <input matInput placeholder="Mot de passe" type="password" formControlName="password">
+        </mat-form-field>
+        <p *ngIf="userForm.get('password')?.errors?.['pattern']">
+            Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
+        </p>
+        <p *ngIf="error">
+            {{error}}
+        </p>
+        
+        <app-button label="Sauvegarder" type="submit"></app-button>
+    </form>
+</div>
+<hr class="profile-separator"/>
+<div>
+    <h2 class="subscription-title">Abonnements</h2>
+    <div class="subscription-list">
+        <div class="subscription-list-card" *ngFor="let subject of subscriptions">
+            <app-card  [title]="subject.title" [content]="subject.description" cardVariant="big">
+                <ng-container actions>
+                <app-button 
+                    (click)="unsubscribe(subject.id)" 
+                    label="Se désabonner">
+                </app-button>
+                </ng-container>
+            </app-card>
+        </div>
+    </div>
+</div>
