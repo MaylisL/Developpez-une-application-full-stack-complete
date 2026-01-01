@@ -1,0 +1,12 @@
+<ng-container *ngIf="!routerLink; else linkButton">
+    <button mat-flat-button disableRipple [disabled]="disabled" [type]="type" class="custom-button" [ngClass]="variant">
+        <mat-icon *ngIf="icon" class="btn-icon">{{ icon }}</mat-icon>
+        {{ label }}
+    </button>
+</ng-container>
+<ng-template #linkButton>
+    <a [routerLink]="routerLink" mat-flat-button disableRipple [disabled]="disabled" class="custom-button" [ngClass]="variant">
+        <mat-icon *ngIf="icon" class="btn-icon">{{ icon }}</mat-icon>
+        {{ label }}
+    </a>
+</ng-template>

@@ -1,0 +1,31 @@
+<a routerLink="/" aria-label="Revenir à l'accueil" class="back-link">
+  <mat-icon class="back-link-icon">arrow_back</mat-icon>
+</a>
+<div class="register-container">
+  <img class="logo" src="/assets/logo_p6.png" alt="logo" />
+  <h2>Inscription</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input id="username" type="text" formControlName="username" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" formControlName="password" />
+    </div>
+     <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+  Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
+    </p>
+    <p *ngIf="error">{{ error }}</p>
+    <app-button label="S'inscrire" type="submit"></app-button>
+  </form>
+   
+    
+</div>

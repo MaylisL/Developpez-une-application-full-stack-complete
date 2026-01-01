@@ -1,0 +1,95 @@
+.back-link-icon {
+  font-size: 39px;
+  color: #000;
+  width: 39px;
+  height: 39px;
+  margin: 39px;
+}
+
+.register-container {
+  max-width: 250px;
+  margin: 60px auto;
+  // padding: 24px;
+  background-color: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: none;
+  height: 130px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #000;
+  align-self: center;
+}
+
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000; // Label noir
+  }
+
+  input {
+    padding: 10px 12px;
+    border: 1px solid #000; // Bordure noire
+    border-radius: 6px;
+    font-size: 14px;
+    height: 50px;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: #6c63ff; // Bordure violette au focus
+    }
+  }
+}
+
+button {
+  background-color: #6c63ff; // Violet Figma
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #5a52d6;
+  }
+
+  &:disabled {
+    background-color: #c7c7c7;
+    cursor: not-allowed;
+  }
+}
+.error-message {
+  color: #ff4d4f; // Rouge pour les messages d'erreur
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    display: block;
+  }
+}

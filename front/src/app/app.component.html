@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #mobileNav position="end" mode="over" class="mobile-sidenav">
+        <div class="mobile-sidenav-elements">
+            <button mat-button disableRipple color="warn" (click)="logout()">Se déconnecter</button>
+            <button mat-button disableRipple routerLink="/posts" routerLinkActive="active-link" (click)="mobileNav.toggle()">Articles</button>
+            <button mat-button disableRipple routerLink="/subjects" routerLinkActive="active-link" (click)="mobileNav.toggle()">Thèmes</button>
+            <a class="mobile-sidenav-profile"
+                mat-icon-button
+                disableRipple
+                routerLink="/profile"
+                routerLinkActive="active"
+                aria-label="Profil"
+                (click)="mobileNav.toggle()"
+            >
+                <mat-icon class="profile-icon" svgIcon="profile"></mat-icon>
+            </a>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="navbar" [class.hide-mobile]="hideMenu" *ngIf="showNavbar">
+            <div class="navbar-content-wrapper">
+                <div class="navbar-left">
+                    <img src="assets/logo_p6.png" alt="MDD Logo" class="logo"/>
+                </div>
+
+                <span class="spacer"></span>
+
+                <div class="navbar-right" *ngIf="!hideMenu">
+                    <button mat-button disableRipple color="warn" (click)="logout()">Se déconnecter</button>
+                    <button mat-button disableRipple routerLink="/posts" routerLinkActive="active-link">Articles</button>
+                    <button mat-button disableRipple routerLink="/subjects" routerLinkActive="active-link">Thèmes</button>
+                    <a mat-icon-button disableRipple routerLink="/profile" routerLinkActive="active" aria-label="Profil">
+                        <mat-icon class="profile-icon" svgIcon="profile"></mat-icon>
+                    </a>
+                </div>
+            </div>
+            <button class="mobile-menu-button" (click)="mobileNav.toggle()">
+                <mat-icon class="mobile-menu-button-icon">menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <main class="page-container">
+            <router-outlet></router-outlet>
+        </main>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

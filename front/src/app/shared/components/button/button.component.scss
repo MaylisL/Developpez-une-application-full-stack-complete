@@ -1,0 +1,41 @@
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7763c5;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0.6rem 1.2rem;
+  text-transform: none; 
+  transition: background-color 0.2s ease-in-out;
+  width: 139px;
+  height: 40px;
+
+  &:hover:not(:disabled) {
+    background-color: #6854b0;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .btn-icon {
+    margin-right: 6px;
+    font-size: 20px;
+  }
+}
+
+.custom-button.outline {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  width: 156px;
+
+  &:hover:not(:disabled) {
+    background-color: #6854b0;
+    color:#ffffff;
+  }
+}

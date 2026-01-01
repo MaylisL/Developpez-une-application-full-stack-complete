@@ -1,0 +1,22 @@
+<a routerLink="/" aria-label="Revenir à l'accueil" class="back-link">
+  <mat-icon class="back-link-icon">arrow_back</mat-icon>
+</a>
+<div class="login-container">
+  <img class="logo" src="/assets/logo_p6.png" alt="logo" />
+  <h2>Se connecter</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-group">
+        <label for="identifier">E-mail ou nom d'utilisateur</label>
+        <input id="identifier" type="text" formControlName="identifier" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input id="password" type="password" formControlName="password" />
+    </div>
+    
+    <app-button label="Se connecter" type="submit"></app-button>
+  </form>
+    
+</div>
